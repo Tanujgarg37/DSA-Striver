@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int n=nums.size();
+        int prevPointer=0;
+        int forwPointer=1;
+
+        while(forwPointer<nums.size())
+        {   
+            if(nums[prevPointer]==nums[forwPointer])forwPointer++;
+            else{
+                nums[++prevPointer]=nums[forwPointer++];
+            }
+        }
+        return prevPointer+1;
+    }
+};
+//TC:-O(n)  SC:-O(n)
+// Intuition is that we use two pointers and make changes when value not same at both pointer index and hence at last return total elements
